@@ -1,0 +1,361 @@
+{
+  "Aydın|Kuşadası|İstanbul|Kadıköy": {
+    "data": {
+      "from": "Aydın",
+      "to": "İstanbul",
+      "fromDistrict": "Kuşadası",
+      "toDistrict": "Kadıköy",
+      "safetyData": {
+        "radarCount": 3,
+        "checkpointCount": 36,
+        "speedCorridorCount": 3
+      },
+      "estimatedDuration": "",
+      "distance": "",
+      "lastUpdated": "04.05.2026 16:47:15",
+      "source": "T.C. İçişleri Bakanlığı",
+      "sourceUrl": "https://www.icisleri.gov.tr/iller-arasi-radar-ve-kontrol-noktasi-uygulama-sayilari",
+      "officialDataAvailable": true,
+      "officialSummary": {
+        "fromDistrict": "Aydın, Kuşadası",
+        "toDistrict": "İstanbul, Kadıköy",
+        "cities": [
+          {
+            "City": "İzmir",
+            "Radarli": 2,
+            "Radarsiz": 10
+          },
+          {
+            "City": "Manisa",
+            "Radarli": 0,
+            "Radarsiz": 3
+          },
+          {
+            "City": "Balıkesir",
+            "Radarli": 0,
+            "Radarsiz": 1
+          },
+          {
+            "City": "Bursa",
+            "Radarli": 0,
+            "Radarsiz": 15
+          },
+          {
+            "City": "Yalova",
+            "Radarli": 0,
+            "Radarsiz": 1
+          },
+          {
+            "City": "Kocaeli",
+            "Radarli": 1,
+            "Radarsiz": 2
+          },
+          {
+            "City": "İstanbul",
+            "Radarli": 0,
+            "Radarsiz": 4
+          }
+        ]
+      }
+    },
+    "timestamp": 1777902435859,
+    "expiresAt": 1777904235859
+  },
+  "Gaziantep|Nizip|Ankara|Mamak": {
+    "data": {
+      "from": "Gaziantep",
+      "to": "Ankara",
+      "fromDistrict": "Nizip",
+      "toDistrict": "Mamak",
+      "safetyData": {
+        "radarCount": 5,
+        "checkpointCount": 40,
+        "speedCorridorCount": 0
+      },
+      "estimatedDuration": "",
+      "distance": "",
+      "lastUpdated": "04.05.2026 16:47:15",
+      "source": "T.C. İçişleri Bakanlığı",
+      "sourceUrl": "https://www.icisleri.gov.tr/iller-arasi-radar-ve-kontrol-noktasi-uygulama-sayilari",
+      "officialDataAvailable": true,
+      "officialSummary": {
+        "fromDistrict": "Gaziantep, Nizip",
+        "toDistrict": "Ankara, Mamak",
+        "cities": [
+          {
+            "City": "Gaziantep",
+            "Radarli": 1,
+            "Radarsiz": 7
+          },
+          {
+            "City": "Osmaniye",
+            "Radarli": 0,
+            "Radarsiz": 2
+          },
+          {
+            "City": "Adana",
+            "Radarli": 2,
+            "Radarsiz": 13
+          },
+          {
+            "City": "Mersin",
+            "Radarli": 1,
+            "Radarsiz": 3
+          },
+          {
+            "City": "Niğde",
+            "Radarli": 1,
+            "Radarsiz": 2
+          },
+          {
+            "City": "Nevşehir",
+            "Radarli": 0,
+            "Radarsiz": 2
+          },
+          {
+            "City": "Aksaray",
+            "Radarli": 0,
+            "Radarsiz": 3
+          },
+          {
+            "City": "Ankara",
+            "Radarli": 0,
+            "Radarsiz": 8
+          }
+        ]
+      }
+    },
+    "timestamp": 1777902435992,
+    "expiresAt": 1777904235992
+  },
+  "Afyonkarahisar|IL_MERKEZI|Ankara|IL_MERKEZI": {
+    "data": {
+      "from": "Afyonkarahisar",
+      "to": "Ankara",
+      "fromDistrict": "Merkez",
+      "toDistrict": "Çankaya",
+      "safetyData": {
+        "radarCount": 4,
+        "checkpointCount": 2,
+        "speedCorridorCount": 5
+      },
+      "estimatedDuration": "",
+      "distance": "",
+      "lastUpdated": "04.05.2026 19:57:31",
+      "source": "T.C. İçişleri Bakanlığı",
+      "sourceUrl": "https://www.icisleri.gov.tr/iller-arasi-radar-ve-kontrol-noktasi-uygulama-sayilari",
+      "officialDataAvailable": true,
+      "officialSummary": {
+        "fromDistrict": "Afyonkarahisar, Merkez",
+        "toDistrict": "Ankara, Çankaya",
+        "cities": [
+          {
+            "City": "Afyonkarahisar",
+            "Radarli": 2,
+            "Radarsiz": 1
+          },
+          {
+            "City": "Eskişehir",
+            "Radarli": 0,
+            "Radarsiz": 1
+          },
+          {
+            "City": "Ankara",
+            "Radarli": 2,
+            "Radarsiz": 0
+          }
+        ]
+      }
+    },
+    "timestamp": 1777913851329,
+    "expiresAt": 1777915651329
+  },
+  "Ankara|IL_MERKEZI|İstanbul|IL_MERKEZI": {
+    "data": {
+      "from": "Ankara",
+      "to": "İstanbul",
+      "fromDistrict": "Çankaya",
+      "toDistrict": "Fatih",
+      "safetyData": {
+        "radarCount": 1,
+        "checkpointCount": 1,
+        "speedCorridorCount": 2
+      },
+      "estimatedDuration": "",
+      "distance": "",
+      "lastUpdated": "04.05.2026 19:57:50",
+      "source": "T.C. İçişleri Bakanlığı",
+      "sourceUrl": "https://www.icisleri.gov.tr/iller-arasi-radar-ve-kontrol-noktasi-uygulama-sayilari",
+      "officialDataAvailable": true,
+      "officialSummary": {
+        "fromDistrict": "Ankara, Çankaya",
+        "toDistrict": "İstanbul, Fatih",
+        "cities": [
+          {
+            "City": "Ankara",
+            "Radarli": 1,
+            "Radarsiz": 0
+          },
+          {
+            "City": "İstanbul",
+            "Radarli": 0,
+            "Radarsiz": 1
+          }
+        ]
+      }
+    },
+    "timestamp": 1777913870479,
+    "expiresAt": 1777915670479
+  },
+  "Gaziantep|IL_MERKEZI|Ankara|IL_MERKEZI": {
+    "data": {
+      "from": "Gaziantep",
+      "to": "Ankara",
+      "fromDistrict": "Şahinbey",
+      "toDistrict": "Çankaya",
+      "safetyData": {
+        "radarCount": 1,
+        "checkpointCount": 21,
+        "speedCorridorCount": 0
+      },
+      "estimatedDuration": "",
+      "distance": "",
+      "lastUpdated": "05.05.2026 05:34:51",
+      "source": "T.C. İçişleri Bakanlığı",
+      "sourceUrl": "https://www.icisleri.gov.tr/iller-arasi-radar-ve-kontrol-noktasi-uygulama-sayilari",
+      "officialDataAvailable": true,
+      "officialSummary": {
+        "fromDistrict": "Gaziantep, Şahinbey",
+        "toDistrict": "Ankara, Çankaya",
+        "cities": [
+          {
+            "City": "Gaziantep",
+            "Radarli": 1,
+            "Radarsiz": 1
+          },
+          {
+            "City": "Adana",
+            "Radarli": 0,
+            "Radarsiz": 5
+          },
+          {
+            "City": "Mersin",
+            "Radarli": 0,
+            "Radarsiz": 5
+          },
+          {
+            "City": "Niğde",
+            "Radarli": 0,
+            "Radarsiz": 3
+          },
+          {
+            "City": "Nevşehir",
+            "Radarli": 0,
+            "Radarsiz": 2
+          },
+          {
+            "City": "Ankara",
+            "Radarli": 0,
+            "Radarsiz": 5
+          }
+        ]
+      }
+    },
+    "timestamp": 1777948491545,
+    "expiresAt": 1777950291545
+  },
+  "Afyonkarahisar|Çay|Ağrı|Merkez": {
+    "data": {
+      "from": "Afyonkarahisar",
+      "to": "Ağrı",
+      "fromDistrict": "Çay",
+      "toDistrict": "Merkez",
+      "safetyData": {
+        "radarCount": 10,
+        "checkpointCount": 11,
+        "speedCorridorCount": 61
+      },
+      "estimatedDuration": "",
+      "distance": "",
+      "lastUpdated": "05.05.2026 05:35:04",
+      "source": "T.C. İçişleri Bakanlığı",
+      "sourceUrl": "https://www.icisleri.gov.tr/iller-arasi-radar-ve-kontrol-noktasi-uygulama-sayilari",
+      "officialDataAvailable": true,
+      "officialSummary": {
+        "fromDistrict": "Afyonkarahisar, Çay",
+        "toDistrict": "Ağrı, Merkez",
+        "cities": [
+          {
+            "City": "Sivas",
+            "Radarli": 3,
+            "Radarsiz": 1
+          },
+          {
+            "City": "Erzincan",
+            "Radarli": 1,
+            "Radarsiz": 1
+          },
+          {
+            "City": "Erzurum",
+            "Radarli": 0,
+            "Radarsiz": 2
+          },
+          {
+            "City": "Ağrı",
+            "Radarli": 0,
+            "Radarsiz": 2
+          },
+          {
+            "City": "Konya",
+            "Radarli": 4,
+            "Radarsiz": 3
+          },
+          {
+            "City": "Nevşehir",
+            "Radarli": 2,
+            "Radarsiz": 0
+          },
+          {
+            "City": "Aksaray",
+            "Radarli": 0,
+            "Radarsiz": 2
+          }
+        ]
+      }
+    },
+    "timestamp": 1777948504548,
+    "expiresAt": 1777950304548
+  },
+  "Gaziantep|Nizip|Gaziantep|Şahinbey": {
+    "data": {
+      "from": "Gaziantep",
+      "to": "Gaziantep",
+      "fromDistrict": "Nizip",
+      "toDistrict": "Şahinbey",
+      "safetyData": {
+        "radarCount": 3,
+        "checkpointCount": 0,
+        "speedCorridorCount": 0
+      },
+      "estimatedDuration": "",
+      "distance": "",
+      "lastUpdated": "05.05.2026 05:37:36",
+      "source": "T.C. İçişleri Bakanlığı",
+      "sourceUrl": "https://www.icisleri.gov.tr/iller-arasi-radar-ve-kontrol-noktasi-uygulama-sayilari",
+      "officialDataAvailable": true,
+      "officialSummary": {
+        "fromDistrict": "Gaziantep, Nizip",
+        "toDistrict": "Gaziantep, Şahinbey",
+        "cities": [
+          {
+            "City": "Gaziantep",
+            "Radarli": 3,
+            "Radarsiz": 0
+          }
+        ]
+      }
+    },
+    "timestamp": 1777948656119,
+    "expiresAt": 1777950456119
+  }
+}

@@ -1,0 +1,7 @@
+node_modules/
+npm-debug.log
+debug_*.png
+debug_screenshot.png
+route_cache.json
+.env
+.DS_Store
