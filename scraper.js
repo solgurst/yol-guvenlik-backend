@@ -1,9 +1,28 @@
 const puppeteer = require('puppeteer');
 const path = require('path');
 
+const OFFICIAL_SOURCE = 'T.C. İçişleri Bakanlığı';
 const MINISTRY_URL = 'https://www.icisleri.gov.tr/iller-arasi-radar-ve-kontrol-noktasi-uygulama-sayilari';
 const DEBUG_DIR = __dirname;
 let browserInstance = null;
+
+async function getOfficialCities() {
+  const browser = await getBrowser();
+  const page = await browser.newPage();
+  try {
+    await page.goto(MINISTRY_URL, { waitUntil: 'networkidle2', timeout: 30000 });
+    const cities = await page.evaluate(() => {
+      const select = document.querySelector('select'); // Genelde ilk select illerdir
+      if (!select) return [];
+      return Array.from(select.options)
+        .filter(o => o.value && o.value !== '0')
+        .map(o => ({ code: o.value, name: o.textContent.trim() }));
+    });
+    return cities;
+  } finally {
+    await page.close();
+  }
+}
 
 async function getBrowser() {
   if (!browserInstance || !browserInstance.isConnected()) {
@@ -25,6 +44,24 @@ async function snap(page, name) {
 }
 
 async function scrapeRouteData(fromCode, toCode, fromName, toName) {
+  // Eğer kodlar gelmediyse isimlerden bulmaya çalış
+  if (!fromCode || !toCode) {
+    console.log(`[Scraper] 🔍 Kodlar eksik, isimlerden aranıyor: ${fromName} -> ${toName}`);
+    const cities = await getOfficialCities();
+    if (!fromCode && fromName) {
+      const found = cities.find(c => c.name.toLowerCase().includes(fromName.toLowerCase()));
+      if (found) fromCode = found.code;
+    }
+    if (!toCode && toName) {
+      const found = cities.find(c => c.name.toLowerCase().includes(toName.toLowerCase()));
+      if (found) toCode = found.code;
+    }
+  }
+
+  if (!fromCode || !toCode) {
+    throw new Error(`İl kodları belirlenemedi: ${fromName}(${fromCode}) -> ${toName}(${toCode})`);
+  }
+
   const browser = await getBrowser();
   const page = await browser.newPage();
   page.setDefaultTimeout(40000);
@@ -362,4 +399,9 @@ async function scrapeRouteData(fromCode, toCode, fromName, toName) {
 }
 
 process.on('SIGINT', async () => { if (browserInstance) await browserInstance.close(); process.exit(); });
-module.exports = { scrapeRouteData };
+module.exports = { 
+  scrapeRouteData, 
+  getOfficialCities, 
+  OFFICIAL_SOURCE, 
+  MINISTRY_URL 
+};
