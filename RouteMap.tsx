@@ -274,43 +274,60 @@ function WebMap({ from, to, fromDistrict, toDistrict, radarCount, checkpointCoun
     const navListener = () => { if (props.onNavigate) props.onNavigate(); };
     window.addEventListener('startNavigation', navListener);
 
-    // ── Güzergah üzerindeki şehirlere radar/kontrol ikonları ekle ──
+    // ── Güzergah ÜZERİNE radar/kontrol ikonları ekle ──
     const cities = officialSummary?.cities || [];
-    cities.forEach((city: CityDetail, idx: number) => {
-      const coord = CITY_COORDS[city.City];
-      if (!coord) return;
-      // Başlangıç ve bitiş zaten A/B olarak işaretli, atla
-      if (city.City === from && idx === 0) return;
-      if (city.City === to && idx === cities.length - 1) return;
-
-      const totalDenetim = city.Radarli + city.Radarsiz;
-      const hasRadar = city.Radarli > 0;
-
-      const markerIcon = L.divIcon({
-        html: `<div style="
-          background: ${hasRadar ? 'rgba(239,68,68,0.9)' : 'rgba(245,158,11,0.9)'};
-          color: white; border-radius: 50%; width: 28px; height: 28px;
-          display: flex; align-items: center; justify-content: center;
-          font-size: 14px; border: 2px solid white;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-        ">${hasRadar ? '📡' : '🚔'}</div>`,
-        iconSize: [28, 28],
-        iconAnchor: [14, 14],
-        className: '',
+    if (routeCoords && routeCoords.length > 10 && cities.length > 0) {
+      // Sadece radar veya kontrol noktası olan şehirleri filtrele
+      const pointsToShow: { city: CityDetail; position: number }[] = [];
+      cities.forEach((city: CityDetail, idx: number) => {
+        if (city.Radarli === 0 && city.Radarsiz === 0) return; // Boş olanları atla
+        // Pozisyonu hesapla: şehrin güzergahtaki oransal yeri
+        const position = cities.length > 1 ? idx / (cities.length - 1) : 0.5;
+        pointsToShow.push({ city, position });
       });
 
-      L.marker(coord, { icon: markerIcon })
-        .addTo(map)
-        .bindPopup(`
-          <div style="font-size:13px;min-width:140px;">
-            <b style="font-size:14px;">${city.City}</b><br/>
-            ${hasRadar ? `📡 <b>${city.Radarli}</b> Radar<br/>` : ''}
-            🚔 <b>${city.Radarsiz}</b> Kontrol Noktası<br/>
-            <hr style="margin:4px 0;border-color:rgba(0,0,0,0.1);"/>
-            <span style="color:#666;">Toplam: ${totalDenetim} denetim</span>
-          </div>
-        `);
-    });
+      pointsToShow.forEach(({ city, position }) => {
+        // Yol koordinatları üzerinde oransal noktayı bul
+        const coordIdx = Math.min(
+          Math.floor(position * (routeCoords.length - 1)),
+          routeCoords.length - 1
+        );
+        const markerCoord = routeCoords[coordIdx];
+
+        // A ve B noktalarına çok yakınsa atla (ilk %5 ve son %5)
+        if (position < 0.08 || position > 0.92) return;
+
+        const hasRadar = city.Radarli > 0;
+        const totalDenetim = city.Radarli + city.Radarsiz;
+
+        const markerIcon = L.divIcon({
+          html: `<div style="
+            background: ${hasRadar ? 'rgba(239,68,68,0.95)' : 'rgba(245,158,11,0.95)'};
+            color: white; border-radius: 50%; width: 32px; height: 32px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 15px; border: 2px solid white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+            animation: pulse 2s infinite;
+          ">${hasRadar ? '📡' : '🚔'}</div>
+          <style>@keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }</style>`,
+          iconSize: [32, 32],
+          iconAnchor: [16, 16],
+          className: '',
+        });
+
+        L.marker(markerCoord, { icon: markerIcon })
+          .addTo(map)
+          .bindPopup(`
+            <div style="font-size:13px;min-width:150px;">
+              <b style="font-size:14px;">${city.City}</b><br/>
+              ${hasRadar ? `📡 <b>${city.Radarli}</b> Radar<br/>` : ''}
+              ${city.Radarsiz > 0 ? `🚔 <b>${city.Radarsiz}</b> Kontrol Noktası<br/>` : ''}
+              <hr style="margin:4px 0;border-color:rgba(0,0,0,0.1);"/>
+              <span style="color:#666;">Toplam: ${totalDenetim} denetim</span>
+            </div>
+          `);
+      });
+    }
 
     // ── Haritayı sığdır ──
     if (routeBounds) {
