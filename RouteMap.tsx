@@ -153,7 +153,7 @@ async function fetchOSRMRoute(
 // ═══════════════════════════════════════════════════════════════════
 // Web Harita Bileşeni
 // ═══════════════════════════════════════════════════════════════════
-function WebMap({ from, to, fromDistrict, toDistrict, radarCount, checkpointCount, speedCorridorCount }: RouteMapProps) {
+function WebMap({ from, to, fromDistrict, toDistrict, radarCount, checkpointCount, speedCorridorCount, officialSummary }: RouteMapProps) {
   const mapRef = React.useRef<HTMLDivElement>(null);
   const mapInstanceRef = React.useRef<any>(null);
 
