@@ -106,6 +106,7 @@ async function fetchFromBackend(
       isExpired: data.isExpired ?? false,
       cacheAge: data.cacheAge,
       nextRefreshAt: data.nextRefreshAt,
+      officialSummary: data.officialSummary,
     };
   } catch (error) {
     clearTimeout(timeoutId);

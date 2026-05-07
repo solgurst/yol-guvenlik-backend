@@ -179,6 +179,7 @@ export default function RouteResultScreen({ navigation, route }: Props) {
             radarCount={radarCount} checkpointCount={checkpointCount}
             speedCorridorCount={speedCorridorCount}
             onNavigate={openGoogleMaps}
+            officialSummary={routeData.officialSummary}
           />
         </View>
 
